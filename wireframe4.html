@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AWGP Store</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Georgia', serif;
+    }
+
+    body {
+      display: flex;
+      background-color: #fff;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      background-color: #b91c1c;
+      color: white;
+      min-height: 100vh;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sidebar .logo {
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+
+    .sidebar nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      text-decoration: none;
+      margin: 15px 0;
+      font-size: 16px;
+    }
+
+    .sidebar .login-btn {
+      background-color: #facc15;
+      color: #111;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .sidebar .login-btn span {
+      margin-right: 6px;
+    }
+
+    /* Main Content */
+    .main {
+      flex: 1;
+      padding: 40px;
+    }
+
+    /* Hero Section */
+    .hero h1 {
+      font-size: 32px;
+      color: #b91c1c;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .hero .browse-btn {
+      background-color: #b91c1c;
+      color: white;
+      padding: 10px 18px;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-bottom: 30px;
+    }
+
+    .search-bar {
+      margin-top: 10px;
+      margin-bottom: 40px;
+    }
+
+    .search-bar input {
+      width: 100%;
+      max-width: 600px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    /* Categories Section */
+    .categories {
+      background-color: #fff7ed;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .categories h2 {
+      font-size: 26px;
+      color: #b91c1c;
+      margin-bottom: 30px;
+    }
+
+    .category-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .category-card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+
+    .category-card:hover {
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .category-card h3 {
+      font-size: 17px;
+      margin-bottom: 10px;
+      color: #1f2937;
+    }
+
+    .category-card p {
+      font-size: 14px;
+      color: #4b5563;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div>
+      <div class="logo">AWGP Store</div>
+      <nav>
+        <a href="#"><span>🏠</span> Home</a>
+        <a href="#"><span>📂</span> Categories</a>
+        <a href="#"><span>📘</span> Products</a>
+        <a href="#"><span>💡</span> Why Us</a>
+        <a href="#"><span>📞</span> Contact</a>
+      </nav>
+    </div>
+    <a href="#" class="login-btn"><span>🔒</span> Login</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <!-- Hero -->
+    <div class="hero">
+      <h1>Experience spiritualism</h1>
+      <p>Find powerful spiritual tools, texts, and treasures to empower your soul’s journey.</p>
+      <button class="browse-btn">Browse Categories</button>
+      <div class="search-bar">
+        <input type="text" placeholder="Search..." />
+      </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="categories">
+      <h2>Our Divine Categories</h2>
+      <div class="category-grid">
+        <div class="category-card">
+          <h3>📖 <strong>Granths</strong></h3>
+          <p>Original writings and commentaries from Pt. Shriram Sharma Acharya.</p>
+        </div>
+        <div class="category-card">
+          <h3>🎶 <strong>Bhajan Audio</strong></h3>
+          <p>Heart-touching CDs, DVDs and digital formats of divine songs.</p>
+        </div>
+        <div class="category-card">
+          <h3>🧿 <strong>Accessories</strong></h3>
+          <p>Yantras, malas, stickers and daily worship essentials.</p>
+        </div>
+        <div class="category-card">
+          <h3>🎁 <strong>Kits & Gifts</strong></h3>
+          <p>Gift-ready spiritual bundles and occasion-specific kits.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

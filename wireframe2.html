@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AWGP Store</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f9fafb;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .navbar .logo {
+      font-weight: bold;
+      font-size: 20px;
+      color: #1a73e8;
+    }
+
+    .navbar .logo span {
+      font-size: 22px;
+      margin-right: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #1a73e8;
+    }
+
+    .search-cart {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .search-cart input {
+      padding: 6px 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .search-cart a {
+      text-decoration: none;
+      color: #1a73e8;
+      font-weight: 500;
+    }
+
+    .login-btn {
+      background-color: #2563eb;
+      color: white;
+      padding: 6px 14px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .login-btn:hover {
+      background-color: #1d4ed8;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(to right, #fff9c4, #e3f2fd);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #1a237e;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #333;
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto 25px;
+    }
+
+    .hero a {
+      background-color: #2563eb;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      transition: 0.3s;
+    }
+
+    .hero a:hover {
+      background-color: #1d4ed8;
+    }
+
+    /* Categories Section */
+    .categories {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .categories h2 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1a237e;
+      margin-bottom: 30px;
+    }
+
+    .category-cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 12px;
+      width: 280px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #111;
+    }
+
+    .card p {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .card .icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+  </style>
+
+  <!-- Font Awesome for Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- Top Nav -->
+  <div class="navbar">
+    <div class="logo"><span>🌸</span>AWGP Store</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Categories</a>
+      <a href="#">Books</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="search-cart">
+      <input type="text" placeholder="Search..." />
+      <a href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
+      <a href="#" class="login-btn">Login</a>
+    </div>
+  </div>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <h1>Spiritual Knowledge Delivered to Your Door</h1>
+    <p>AWGP’s mission is to uplift humanity through Vedic wisdom, pure intentions, and accessible resources. Begin your transformation today.</p>
+    <a href="#">Shop Now</a>
+  </section>
+
+  <!-- Categories -->
+  <section class="categories">
+    <h2>Explore Categories</h2>
+    <div class="category-cards">
+      <div class="card">
+        <div class="icon">📚</div>
+        <h3><strong>Books</strong></h3>
+        <p>Inspirational texts, Upanishads, Yug Nirman Yojna.</p>
+      </div>
+      <div class="card">
+        <div class="icon">💿</div>
+        <h3><strong>CDs & DVDs</strong></h3>
+        <p>Bhajans, discourses, Gayatri mantra chants, etc.</p>
+      </div>
+      <div class="card">
+        <div class="icon">👜</div>
+        <h3><strong>Accessories</strong></h3>
+        <p>Bags, stickers, posters for spiritual events & prachar.</p>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

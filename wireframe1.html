@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AWGP Store</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background: #ffffff;
+      border-right: 1px solid #ddd;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .logo {
+      font-size: 20px;
+      margin-bottom: 30px;
+      color: #1a73e8;
+      font-weight: 700;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #333;
+      padding: 10px 5px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 6px;
+      transition: 0.2s;
+    }
+
+    .menu a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .login-btn {
+      margin-top: auto;
+      background-color: #2563eb;
+      color: white;
+      padding: 12px;
+      text-align: center;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .login-btn:hover {
+      background-color: #1d4ed8;
+    }
+
+    /* Main */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Topbar */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .search-bar {
+      width: 60%;
+      padding: 10px 15px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .cart-link {
+      color: #1a73e8;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    /* Hero Section */
+    .hero {
+      flex: 1;
+      background: linear-gradient(to right, #fff9c4, #e3f2fd);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      font-weight: 800;
+      color: #1a237e;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      max-width: 700px;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .explore-btn {
+      background-color: #2563eb;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      transition: 0.3s;
+    }
+
+    .explore-btn:hover {
+      background-color: #1d4ed8;
+    }
+  </style>
+
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">🌸 <strong>AWGP Store</strong></div>
+      <nav class="menu">
+        <a href="#"><i class="fas fa-home"></i> Home</a>
+        <a href="#"><i class="fas fa-th-large"></i> Categories</a>
+        <a href="#"><i class="fas fa-book"></i> Books</a>
+        <a href="#"><i class="fas fa-compact-disc"></i> CD/DVD</a>
+        <a href="#"><i class="fas fa-shopping-bag"></i> Bags</a>
+        <a href="#"><i class="fas fa-praying-hands"></i> About Us</a>
+        <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+      </nav>
+      <a href="#" class="login-btn"><i class="fas fa-lock"></i> Login / Cart</a>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <header class="topbar">
+        <input type="text" placeholder="Search products, books, wisdom..." class="search-bar"/>
+        <a href="#" class="cart-link"><i class="fas fa-shopping-cart"></i> Cart (0)</a>
+      </header>
+
+      <section class="hero">
+        <h1>Welcome to the AWGP Official Store</h1>
+        <p>Your trusted source for Gayatri literature, Yug Nirman resources, spiritual books,<br>
+           music, and more. All proceeds support humanitarian and reformative missions.</p>
+        <a href="#" class="explore-btn">Explore Categories</a>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

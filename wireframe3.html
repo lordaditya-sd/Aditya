@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AWGP Store</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #5e2ca5;
+      padding: 15px 40px;
+      color: white;
+    }
+
+    .navbar .logo {
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+    }
+
+    .search-login {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-login input {
+      padding: 6px 10px;
+      border-radius: 4px;
+      border: none;
+      outline: none;
+    }
+
+    .search-login .cart {
+      color: white;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .search-login .login-btn {
+      background-color: #fbbf24;
+      color: #111;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-weight: 600;
+      border: none;
+      text-decoration: none;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(to right, #5e2ca5, #fbbf24);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .hero a {
+      background: white;
+      color: #5e2ca5;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    /* Categories */
+    .categories {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: #fff;
+    }
+
+    .categories h2 {
+      font-size: 24px;
+      color: #5e2ca5;
+      margin-bottom: 30px;
+    }
+
+    .category-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 12px;
+      width: 250px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      margin: 10px 0;
+      font-size: 18px;
+      color: #111;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .card .icon {
+      font-size: 26px;
+    }
+
+    /* Featured Products */
+    .featured {
+      padding: 50px 20px;
+      text-align: center;
+      background: #f3f4f6;
+    }
+
+    .featured h2 {
+      font-size: 24px;
+      color: #5e2ca5;
+      margin-bottom: 30px;
+    }
+
+    .product-card {
+      background: white;
+      display: inline-block;
+      padding: 20px;
+      border-radius: 10px;
+      width: 220px;
+      text-align: left;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .product-card h3 {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .product-card p {
+      margin: 5px 0;
+      color: #f59e0b;
+      font-weight: bold;
+    }
+
+    .product-card button {
+      background-color: #5e2ca5;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* About Section */
+    .about {
+      padding: 60px 20px;
+      text-align: center;
+      background-color: white;
+    }
+
+    .about h2 {
+      font-size: 24px;
+      color: #5e2ca5;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: #333;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* Footer Placeholder */
+    .footer {
+      padding: 40px 20px;
+      background-color: #fbbf24;
+      text-align: center;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">AWGP Store</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Categories</a>
+      <a href="#">Featured</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="search-login">
+      <input type="text" placeholder="Search..." />
+      <a href="#" class="cart">🛒</a>
+      <a href="#" class="login-btn">Login</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Harnessing Spiritual Power Through Products</h1>
+    <p>Support the Yug Nirman Yojna. Purchase books, CDs, posters, bags and divine<br>accessories to accelerate your sadhana.</p>
+    <a href="#">Start Shopping</a>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories">
+    <h2>Categories</h2>
+    <div class="category-grid">
+      <div class="card">
+        <div class="icon">📘</div>
+        <h3><strong>Books</strong></h3>
+        <p>Spiritual, motivational and educational granths by Yug Rishi.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🎧</div>
+        <h3><strong>Audio & Video</strong></h3>
+        <p>Bhajans, discourses and mantra chants in CD/DVD format.</p>
+      </div>
+      <div class="card">
+        <div class="icon">👜</div>
+        <h3><strong>Bags & Posters</strong></h3>
+        <p>Spiritual carry bags and decorative posters for your space.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🧿</div>
+        <h3><strong>Accessories</strong></h3>
+        <p>Gayatri yantras, lockets, stickers and daily puja items.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="featured">
+    <h2>Featured Products</h2>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/200x120?text=Product" alt="Product" />
+      <h3>Change of Thoughts</h3>
+      <p>₹5</p>
+      <button>Add to Cart</button>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <h2>About AWGP Store</h2>
+    <p>The AWGP Store is not just a marketplace. It is a spiritual tool to reach more people with the thoughts and mission of Yug Rishi Pandit Shriram Sharma Acharya. Every item purchased supports the cause of human upliftment and cultural renaissance.</p>
+  </section>
+
+  <!-- Footer Placeholder -->
+  <div class="footer">
+    Stay Updated
+  </div>
+
+</body>
+</html>
