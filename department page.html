@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Department Page - University</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: #ffffff;
+      color: #003366;
+    }
+
+    header {
+      background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-G3W8fM0LYf43i22wsCxTnwJeLAGE43_OeQ&s') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #003366;
+      border-bottom: 2px solid #007BFF;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: #f1f7ff;
+      padding: 12px 16px;
+      margin: 6px 0;
+      border-left: 5px solid #007BFF;
+      border-radius: 4px;
+    }
+
+    .faculty {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .faculty-member {
+      background: #e6f0ff;
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 0 8px rgba(0,0,50,0.1);
+    }
+
+    .faculty-member img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #007BFF;
+    }
+
+    a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .contact {
+      background: #eaf2fb;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      margin-top: 10px;
+    }
+
+    .images-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .images-row img {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 8px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header>
+    <h1>Department of Computer Science</h1>
+    <p>Innovating the Future with Technology</p>
+  </header>
+
+  <!-- About -->
+  <section>
+    <h2>About the Department</h2>
+    <p>The Department of Computer Science is dedicated to advancing knowledge and technology through research, innovation, and teaching. Our programs offer a blend of theory and practical skills for a successful career.</p>
+  </section>
+
+  <!-- Gallery -->
+  <section>
+    <h2>Campus & Lab Highlights</h2>
+    <div class="images-row">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnVZIAcqFl7QgZzdKZ4iGEfLoyLymwkyeFcQ&s" alt="Lab">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxok76iY5YRMbykYC3sdobi_aV5nFpv4ULRw&s" alt="Campus">
+    </div>
+  </section>
+
+  <!-- Programs -->
+  <section>
+    <h2>Programs Offered</h2>
+    <ul>
+      <li>B.Sc. in Computer Science</li>
+      <li>M.Sc. in Computer Science</li>
+      <li>Ph.D. in Artificial Intelligence</li>
+    </ul>
+  </section>
+
+  <!-- Faculty -->
+  <section>
+    <h2>Faculty Members</h2>
+    <div class="faculty">
+      <div class="faculty-member">
+        <img src="https://via.placeholder.com/100" alt="Dr. Sharma">
+        <h3>Dr. R.K. Sharma</h3>
+        <p>Head of Department</p>
+      </div>
+      <div class="faculty-member">
+        <img src="https://via.placeholder.com/100" alt="Prof. Mehta">
+        <h3>Prof. S. Mehta</h3>
+        <p>Cybersecurity Expert</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Labs -->
+  <section>
+    <h2>Facilities & Labs</h2>
+    <ul>
+      <li>Artificial Intelligence Lab</li>
+      <li>IoT & Embedded Systems Lab</li>
+      <li>Software Development Studio</li>
+    </ul>
+  </section>
+
+  <!-- Events -->
+  <section>
+    <h2>Events & Achievements</h2>
+    <ul>
+      <li>National Coding Champion 2023</li>
+      <li>Annual Tech Fest - CodeVerse</li>
+      <li>MoU signed with Google India</li>
+    </ul>
+  </section>
+
+  <!-- Student Corner -->
+  <section>
+    <h2>Student Corner</h2>
+    <ul>
+      <li><a href="#">📘 Download Syllabus (PDF)</a></li>
+      <li><a href="#">📅 Academic Calendar</a></li>
+      <li><a href="#">⬇️ Lab Manual</a></li>
+    </ul>
+  </section>
+
+  <!-- Alumni -->
+  <section>
+    <h2>Alumni & Placements</h2>
+    <p>Our students are placed in Google, TCS, Infosys, and ISRO with an average package of ₹6 LPA.</p>
+    <p><a href="#">📄 View Placement Report</a></p>
+  </section>
+
+  <!-- Contact -->
+  <section>
+    <h2>Contact Us</h2>
+    <div class="contact">
+      <p><strong>Email:</strong> csdept@university.edu</p>
+      <p><strong>Phone:</strong> +91-98765-43210</p>
+      <p><strong>Office:</strong> 2nd Floor, Academic Block B</p>
+      <iframe src="https://maps.google.com/maps?q=delhi%20university&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+    </div>
+  </section>
+
+</body>
+</html>
