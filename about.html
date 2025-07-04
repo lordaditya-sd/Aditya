@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About DSVV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* HEADER STYLES */
+    .about-header {
+      background-color: #003399;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 15px 30px;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .about-header h1 {
+      font-size: 24px;
+      margin: 0 auto;
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    .back-icon {
+      color: white;
+      text-decoration: none;
+      font-size: 22px;
+      margin-right: auto;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .back-icon:hover {
+      color: #99ccff;
+    }
+
+    /* CARD SECTION */
+    .about-cards-section {
+      padding: 40px 20px;
+      background-color: #f2f6fc;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .about-cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    .about-card {
+      width: 300px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease;
+      padding-bottom: 15px;
+    }
+
+    .about-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .about-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .about-card h3 {
+      margin: 15px 10px 8px;
+      font-size: 18px;
+      color: #000099;
+    }
+
+    .about-card p {
+      margin: 0 15px 10px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #444;
+      min-height: 90px;
+    }
+
+    .explore-btn {
+      margin: auto;
+      margin-top: 10px;
+      width: 80%;
+      background-color: #0000cc;
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
+
+    .explore-btn:hover {
+      background-color: #2222ff;
+    }
+
+    @media (max-width: 768px) {
+      .about-card {
+        width: 100%;
+      }
+
+      .about-header h1 {
+        font-size: 20px;
+      }
+
+      .back-icon {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Blue Header -->
+  <div class="about-header">
+    <a href="javascript:history.back()" class="back-icon">&#8592;</a>
+    <h1>About DSVV</h1>
+  </div>
+
+  <!-- Cards Section -->
+  <section class="about-cards-section">
+    <div class="about-cards-container">
+
+      <!-- Card 1 -->
+      <div class="about-card">
+        <img src="https://www.dsvv.ac.in/wp-content/uploads/2022/01/patron-founder-2-768x521-300x204-1.jpg" alt="Founder">
+        <h3>Our Founder</h3>
+        <p>Visionary Pt. Shriram Sharma Acharya established DSVV to integrate spirituality and scientific progress.</p>
+        <a href="#" class="explore-btn">Explore</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="about-card">
+        <img src="https://www.dsvv.ac.in/wp-content/uploads/2022/01/IMG_5101-300x200-1.jpg" alt="Chancellor">
+        <h3>University Chancellor</h3>
+        <p>Dr. Chinmay Pandya leads the institution with a balance of intellect, spirituality, and innovation.</p>
+        <a href="#" class="explore-btn">Explore</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="about-card">
+        <img src="https://www.dsvv.ac.in/wp-content/uploads/2022/01/unnamed.jpg" alt="Campus">
+        <h3>The Campus</h3>
+        <p>Spread across scenic Haridwar, the campus reflects peace, purity, and a higher purpose of education.</p>
+        <a href="#" class="explore-btn">Explore</a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="about-card">
+        <img src="https://www.dsvv.ac.in/wp-content/uploads/2022/01/dsvv1-1-1-300x300.jpg" alt="Emblem">
+        <h3>Our Identity</h3>
+        <p>The university emblem and values are deeply rooted in Vedic wisdom and national upliftment.</p>
+        <a href="#" class="explore-btn">Explore</a>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="about-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNEtjXiC5evD4-YdRdLgq9OBYq3IpeWSgnyA&s" alt="Establishment">
+        <h3>Establishment</h3>
+        <p>DSVV was founded to uplift society through spiritual education and scientific awareness.</p>
+        <a href="#" class="explore-btn">Explore</a>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="about-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2GN0sMSyzHDRgdpS8V9rJAPBp4AL7u44OMw&s" alt="Vision and Mission">
+        <h3>Vision & Mission</h3>
+        <p>Creating ideal citizens guided by ethics, science, culture, and service to humanity.</p>
+        <a href="#" class="explore-btn">Explore</a>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="about-card">
+        <img src="https://www.dsvv.ac.in/wp-content/uploads/2022/02/PPE-12-1.jpg" alt="Governance and Committees">
+        <h3>Governance & Committees</h3>
+        <p>DSVV is led by visionaries and managed by spiritual and academic authorities.</p>
+        <a href="#" class="explore-btn">Explore</a>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>
