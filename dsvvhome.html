@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DSVV Homepage</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; }
+
+    .top-logo { background-color: white; text-align: center; padding: 10px 0; border-bottom: 1px solid #ccc; }
+    .top-logo img { max-width: 220px; height: auto; }
+
+    .navbar { background-color: white; padding: 10px 0; display: flex; justify-content: center; border-bottom: 1px solid #ccc; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; align-items: center; }
+    nav a { text-decoration: none; background-color: #0000cc; color: white; font-size: 16px; padding: 8px 16px; border-radius: 20px; transition: background 0.3s; }
+    nav a:hover { background-color: #000099; }
+    .nav-status { color: #0000cc; font-weight: bold; margin-left: 15px; }
+    .nav-button { background-color: #0000cc; color: #fff; padding: 8px 16px; border: none; font-size: 16px; cursor: pointer; border-radius: 20px; }
+
+    .latest-news { background-color: #e0e0e0; padding: 10px 30px; display: flex; align-items: center; font-size: 16px; border-bottom: 1px solid #ccc; }
+    .latest-news .label { background-color: #0000cc; color: white; padding: 5px 10px; margin-right: 10px; border-radius: 4px; font-weight: bold; }
+
+    .hero { position: relative; width: 100%; height: 500px; background: url('https://www.dsvv.ac.in/wp-content/uploads/2022/01/homebanner2.jpg') no-repeat center center; background-size: cover; }
+    .hero-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; z-index: 2; }
+    .hero-content h1 { font-size: 32px; margin-bottom: 20px; color: white; text-shadow: 1px 1px 3px #000; }
+    .search-bar { width: 400px; max-width: 90%; padding: 12px 15px; border-radius: 6px; border: 1px solid #ccc; font-size: 16px; outline: none; }
+
+    .scroll-container { overflow-x: auto; scroll-behavior: smooth; cursor: grab; }
+    .scroll-track { display: flex; gap: 20px; animation: scroll 35s linear infinite; }
+    .scroll-container:hover .scroll-track { animation-play-state: paused; }
+    .scroll-card { min-width: 300px; background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); overflow: hidden; text-align: center; flex-shrink: 0; transition: transform 0.3s ease; }
+    .scroll-card img { width: 100%; height: 200px; object-fit: cover; }
+    .scroll-card-content { padding: 10px 15px 20px 15px; }
+    .scroll-card h3 { font-size: 18px; color: #000; margin: 15px 0 0 0; }
+    .explore-btn { display: inline-block; background-color: #0000cc; color: white; padding: 8px 20px; border-radius: 25px; font-size: 14px; text-decoration: none; margin-top: 10px; transition: background-color 0.3s ease; }
+    .explore-btn:hover { background-color: #3333ff; }
+    @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+    .four-box-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1200px; margin: auto; }
+    .box-card { background-color: #f4f4f4; padding: 0; border-radius: 10px; height: 480px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); transition: all 0.3s ease-in-out; }
+    .box-card:hover { box-shadow: 0 0 15px rgba(0, 0, 255, 0.3), 0 0 30px rgba(0, 0, 255, 0.2); transform: translateY(-3px); }
+    .card-img { width: 100%; height: 180px; object-fit: cover; border-top-left-radius: 10px; border-top-right-radius: 10px; }
+    .box-card h3 { color: #0000cc; font-size: 18px; padding: 15px 15px 0 15px; margin: 0; }
+    .scroll-content { flex-grow: 1; overflow-y: auto; max-height: 150px; padding: 10px 15px; font-size: 15px; color: #333; }
+    .read-btn { display: inline-block; margin: 10px 15px 15px 15px; background-color: #0000cc; color: white; padding: 10px 20px; border-radius: 25px; font-size: 14px; text-decoration: none; align-self: flex-start; transition: background-color 0.3s ease; }
+    .read-btn:hover { background-color: #3333ff; }
+
+    .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; max-width: 1200px; margin: auto; }
+    .testimonial-card { background-color: white; padding: 25px 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,255,0.15); text-align: center; transition: all 0.3s ease-in-out; height: 100%; opacity: 0; animation: fadeInUp 1s forwards; }
+    .testimonial-card:hover { box-shadow: 0 0 25px rgba(0, 0, 255, 0.3); transform: translateY(-5px); }
+    .testimonial-img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 3px solid #0000cc; }
+    .testimonial-card h3 { color: #0000cc; margin: 10px 0 5px 0; font-size: 18px; }
+    .testimonial-card .title { font-size: 14px; color: #666; margin-bottom: 15px; }
+    .testimonial-card .quote { font-size: 15px; color: #333; line-height: 1.5; margin-bottom: 15px; }
+    @keyframes fadeInUp { 0% { transform: translateY(30px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+    .animate-fade { animation: fadeInUp 1s ease forwards; }
+  </style>
+</head>
+<body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DSVV Homepage</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* TOP LOGO SECTION */
+    .top-logo {
+      background-color: white;
+      text-align: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .top-logo img {
+      max-width: 220px;
+      height: auto;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background-color: white;
+      height: auto;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      border-bottom: 1px solid #ccc;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      background-color: #0000cc;
+      color: white;
+      font-size: 16px;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #000099;
+    }
+
+    .nav-status {
+      color: #0000cc;
+      font-weight: bold;
+      margin-left: 15px;
+    }
+
+    .nav-button {
+      background-color: #0000cc;
+      color: #fff;
+      padding: 8px 16px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 20px;
+    }
+
+    /* LATEST NEWS BAR */
+    .latest-news {
+      background-color: #e0e0e0;
+      padding: 10px 30px;
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .latest-news .label {
+      background-color: #0000cc;
+      color: white;
+      padding: 5px 10px;
+      margin-right: 10px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      background: url('https://www.dsvv.ac.in/wp-content/uploads/2022/01/homebanner2.jpg') no-repeat center center;
+      background-size: cover;
+    }
+
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      z-index: 2;
+    }
+
+    .hero-content h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: white;
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    .search-bar {
+      width: 400px;
+      max-width: 90%;
+      padding: 12px 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP LOGO IMAGE -->
+  <div class="top-logo">
+    <img src="https://dsvv.ac.in/wp-content/uploads/2022/01/Logo2.jpg" alt="DSVV Logo" />
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <div class="navbar">
+    <nav>
+      <a href="#">About DSVV</a>
+      <a href="#">Academics</a>
+      <a href="#">Admissions</a>
+      <a href="#">International</a>
+      <a href="#">NAAC</a>
+      <a href="#">Self Disclosure</a>
+      <span class="nav-status">Admissions Closed for Session 2025-26</span>
+      <button class="nav-button">Check Admit Card</button>
+    </nav>
+  </div>
+
+  <!-- LATEST NEWS BAR -->
+  <div class="latest-news">
+    <div class="label">LATEST NEWS</div>
+    <div>Back Exam Notice</div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>"Empowering Minds, Enriching Lives – DSVV: Shaping The Future."</h1>
+      <input type="text" class="search-bar" placeholder="Search on site..." />
+    </div>
+  </section>
+
+  <!-- ABOUT DSVV SECTION WITH IMAGE + SOCIAL LINKS -->
+<section style="padding: 50px 20px; background-color: #ffffff;">
+  <div style="max-width: 1100px; margin: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 30px;">
+    
+    <!-- Left Side: Image -->
+    <div style="flex: 1; min-width: 280px;">
+      <img src="https://www.dsvv.ac.in/wp-content/uploads/2022/01/homebanner2.jpg" alt="DSVV Campus" style="width: 100%; height: auto; border-radius: 10px;" />
+    </div>
+
+    <!-- Right Side: Text -->
+    <div style="flex: 1; min-width: 280px;">
+      <h2 style="font-size: 28px; color: #0000cc; margin-bottom: 15px;">About Dev Sanskriti Vishwavidyalaya</h2>
+      <p style="font-size: 18px; color: #333; line-height: 1.8; text-align: justify;">
+        Dev Sanskriti Vishwavidyalaya (DSVV) is a unique institution focused on blending modern scientific education with the deep-rooted spiritual and cultural heritage of India. Located in the holy town of Haridwar, the university emphasizes value-based learning, yoga, Indian culture, self-development, and social service.
+      </p>
+      <a href="#" style="display: inline-block; margin-top: 20px; background-color: #0000cc; color: white; padding: 12px 25px; font-size: 16px; border-radius: 25px; text-decoration: none;">Read More</a>
+    </div>
+
+  </div>
+
+  <!-- SOCIAL MEDIA BUTTONS BELOW -->
+  <div style="margin-top: 50px; text-align: center;">
+    <h2 style="font-size: 24px; margin-bottom: 20px; color: #000;">Connect With Us</h2>
+    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+
+      <a href="https://www.facebook.com/dsvvofficial" target="_blank"
+         style="background-color: #3b5998; color: white; padding: 12px 20px; border-radius: 30px; font-size: 16px; text-decoration: none;">
+         Facebook
+      </a>
+
+      <a href="https://twitter.com/dsvvofficial" target="_blank"
+         style="background-color: #1da1f2; color: white; padding: 12px 20px; border-radius: 30px; font-size: 16px; text-decoration: none;">
+         Twitter
+      </a>
+
+      <a href="https://www.instagram.com/dsvvofficial" target="_blank"
+         style="background-color: #e1306c; color: white; padding: 12px 20px; border-radius: 30px; font-size: 16px; text-decoration: none;">
+         Instagram
+      </a>
+
+      <a href="https://www.youtube.com/c/DSVVOfficial" target="_blank"
+         style="background-color: #ff0000; color: white; padding: 12px 20px; border-radius: 30px; font-size: 16px; text-decoration: none;">
+         YouTube
+      </a>
+
+      <a href="https://www.linkedin.com/school/dsvv/" target="_blank"
+         style="background-color: #0077b5; color: white; padding: 12px 20px; border-radius: 30px; font-size: 16px; text-decoration: none;">
+         LinkedIn
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- UNIVERSITY HIGHLIGHTS SECTION (WITH EXPLORE BUTTON + MANUAL SCROLL) -->
+<section style="background-color: #f4f4f4; padding: 50px 20px;">
+  <h2 style="text-align: center; font-size: 28px; color: #0000cc; margin-bottom: 30px;">
+    University Highlights
+  </h2>
+
+  <div class="scroll-container" onmouseover="pauseScroll()" onmouseout="resumeScroll()">
+    <div class="scroll-track" id="scrollTrack">
+      
+      <!-- CARD TEMPLATE (COPY/PASTE FOR EACH) -->
+      <div class="scroll-card">
+        <img src="https://www.dsvv.ac.in/wp-content/uploads/2023/01/Convocation-800x800-1-768x768.jpeg" alt="Convocation">
+        <div class="scroll-card-content">
+          <a href="#" class="explore-btn">Explore</a>
+          <h3>Convocation Ceremony</h3>
+        </div>
+      </div>
+
+      <div class="scroll-card">
+        <img src="https://www.dsvv.ac.in/wp-content/uploads/2023/01/305126694_5512495318787896_1590426576546212262_n-400x400-1.jpg" alt="Event">
+        <div class="scroll-card-content">
+          <a href="#" class="explore-btn">Explore</a>
+          <h3>Student Gathering</h3>
+        </div>
+      </div>
+
+      <div class="scroll-card">
+        <img src="https://www.dsvv.ac.in/wp-content/uploads/2023/01/301364548_5484117624958999_1014719316187141078_nw-400x400-1.jpg" alt="Guest Lecture">
+        <div class="scroll-card-content">
+          <a href="#" class="explore-btn">Explore</a>
+          <h3>Special Lecture</h3>
+        </div>
+      </div>
+
+      <div class="scroll-card">
+        <img src="https://www.dsvv.ac.in/wp-content/uploads/2023/01/298360389_5451618384875590_6137002404731318466_n-400x400-1.jpg" alt="Cultural Event">
+        <div class="scroll-card-content">
+          <a href="#" class="explore-btn">Explore</a>
+          <h3>Cultural Performance</h3>
+        </div>
+      </div>
+
+      <div class="scroll-card">
+        <img src="https://www.dsvv.ac.in/wp-content/uploads/2023/01/WhatsApp-Image-2022-03-24-at-15.26.02-400x400-1.jpeg" alt="Award Ceremony">
+        <div class="scroll-card-content">
+          <a href="#" class="explore-btn">Explore</a>
+          <h3>Campus Awards</h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STYLE -->
+<style>
+  .scroll-container {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    cursor: grab;
+  }
+
+  .scroll-track {
+    display: flex;
+    gap: 20px;
+    animation: scroll 35s linear infinite;
+  }
+
+  .scroll-container:hover .scroll-track {
+    animation-play-state: paused;
+  }
+
+  .scroll-card {
+    min-width: 300px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+
+  .scroll-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .scroll-card-content {
+    padding: 10px 15px 20px 15px;
+  }
+
+  .scroll-card h3 {
+    font-size: 18px;
+    color: #000;
+    margin: 15px 0 0 0;
+  }
+
+  .explore-btn {
+    display: inline-block;
+    background-color: #0000cc;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+
+  .explore-btn:hover {
+    background-color: #3333ff;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+</style>
+
+<!-- SCRIPT -->
+<script>
+  function pauseScroll() {
+    document.getElementById("scrollTrack").style.animationPlayState = "paused";
+  }
+
+  function resumeScroll() {
+    document.getElementById("scrollTrack").style.animationPlayState = "running";
+  }
+</script>
+
+<!-- FOUR FEATURED EVENTS SECTION -->
+<section style="padding: 50px 20px; background-color: #ffffff;">
+  <h2 style="text-align: center; font-size: 28px; color: #0000cc; margin-bottom: 30px;">
+    <i class="fas fa-bolt" style="margin-right:10px;"></i> Featured University Updates
+  </h2>
+
+  <div class="four-box-grid">
+
+    <!-- CARD 1: डॉ. अरूणेश पाराशर -->
+    <div class="box-card">
+      <img src="https://dsvv.s3.ap-south-1.amazonaws.com/uploads/2025/04/WhatsApp-Image-2025-04-04-at-10.07.05-PM-1536x864.jpeg" alt="Event 1" class="card-img">
+      <h3>सम्मानित प्रवक्ता - डॉ. अरूणेश पाराशर</h3>
+      <div class="scroll-content">
+        <p>हरिद्वार देव संस्कृति विश्वविद्यालय के पर्यटन विभाग के डॉ. अरूणेश पाराशर को आई.एच.एम. व ग्राफिक एरा विश्वविद्यालय देहरादून ने सम्मानित किया।</p>
+        <p>डॉ. पाराशर ने आई.एच.एम. में टेक्नोलॉजी के साथ एथिक्स नियमों पर अपना प्रस्तुतिकरण किया था।</p>
+        <p>इसके साथ ही ग्राफिक एरा के 7 दिवसीय फैकल्टी डवलपमेंट कार्यक्रम में शिक्षकों को रिसर्च फिलॉसफी पर अपना व्याख्यान दिया।</p>
+      </div>
+      <a href="#" class="read-btn">Explore More</a>
+    </div>
+
+    <!-- CARD 2: DSVV x VMU -->
+    <div class="box-card">
+      <img src="https://dsvv.s3.ap-south-1.amazonaws.com/uploads/2025/03/WhatsApp-Image-2025-03-04-at-3.13.15-PM-2048x1155.jpeg" alt="Event 2" class="card-img">
+      <h3>MoU with Vytautas Magnus University, Lithuania</h3>
+      <div class="scroll-content">
+        <p>In a landmark development for global academic exchange, Dev Sanskriti Vishwavidyalaya (DSVV), Haridwar, India, and Vytautas Magnus University (VMU), Kaunas, Lithuania, have entered into a formal partnership through the signing of a Memorandum of Understanding (MoU).</p>
+        <p>This strategic collaboration aims to promote mutual academic and cultural exchange, creating a dynamic platform for knowledge-sharing, research cooperation, and global educational outreach.</p>
+      </div>
+      <a href="#" class="read-btn">Explore More</a>
+    </div>
+
+    <!-- CARD 3: DSVV x Quantum -->
+    <div class="box-card">
+      <img src="https://dsvv.s3.ap-south-1.amazonaws.com/uploads/2025/03/IMG_8862.jpeg" alt="Event 3" class="card-img">
+      <h3>MoU with Quantum University, Roorkee</h3>
+      <div class="scroll-content">
+        <p>In a remarkable step towards strengthening academic and research collaboration, Quantum University, Roorkee, and Dev Sanskriti Vishwavidyalaya (DSVV), Haridwar, have officially signed a Memorandum of Understanding (MoU).</p>
+        <p>This partnership, formalized on 26th March 2025, signifies a shared commitment to fostering mutual cooperation in the fields of Humanities, Tourism & Management Studies, Media Studies, and Health.</p>
+      </div>
+      <a href="#" class="read-btn">Explore More</a>
+    </div>
+
+    <!-- CARD 4: DSVV x Line Monk -->
+    <div class="box-card">
+      <img src="https://dsvv.s3.ap-south-1.amazonaws.com/uploads/2025/03/MOU-DSVV-VMU-1024x1024.png" alt="Event 4" class="card-img">
+      <h3>MoU with Line Monk Pty Ltd, Australia</h3>
+      <div class="scroll-content">
+        <p>Haridwar, March 4, 2025: Dev Sanskriti Vishwavidyalaya (DSVV), Haridwar, has entered into a significant partnership with Line Monk Pty Ltd, a leading Australian technology company, by signing a Memorandum of Understanding (MoU).</p>
+        <p>This collaboration aims to foster innovation, research, and the development of ethical technology solutions, particularly in the fields of Artificial Intelligence (AI) and Machine Learning.</p>
+      </div>
+      <a href="#" class="read-btn">Explore More</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- STYLES -->
+<style>
+  .four-box-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .box-card {
+    background-color: #f4f4f4;
+    padding: 0;
+    border-radius: 10px;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .box-card:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 255, 0.3), 0 0 30px rgba(0, 0, 255, 0.2);
+    transform: translateY(-3px);
+  }
+
+  .card-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .box-card h3 {
+    color: #0000cc;
+    font-size: 18px;
+    padding: 15px 15px 0 15px;
+    margin: 0;
+  }
+
+  .scroll-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 150px;
+    padding: 10px 15px;
+    font-size: 15px;
+    color: #333;
+  }
+
+  .read-btn {
+    display: inline-block;
+    margin: 10px 15px 15px 15px;
+    background-color: #0000cc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    text-decoration: none;
+    align-self: flex-start;
+    transition: background-color 0.3s ease;
+  }
+
+  .read-btn:hover {
+    background-color: #3333ff;
+  }
+</style>
+
+<!-- FONT AWESOME FOR ICON -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- TESTIMONIAL SECTION -->
+<section style="padding: 50px 20px; background-color: #f9f9ff;">
+  <h2 style="text-align: center; font-size: 28px; color: #0000cc; margin-bottom: 30px;">
+    <i class="fas fa-users" style="margin-right:10px;"></i> What People Say About DSVV
+  </h2>
+
+  <div class="testimonial-grid">
+
+    <!-- TESTIMONIAL 1 -->
+    <div class="testimonial-card animate-fade">
+      <img src="https://www.dsvv.ac.in/wp-content/uploads/2022/01/IMG-20210924-WA0014-300x300.jpg" class="testimonial-img" alt="Person 1">
+      <h3>Dr. A.P. Singh</h3>
+      <p class="title">Former Dean, IGNOU</p>
+      <p class="quote">“DSVV is a spiritual powerhouse. The integration of Indian values with modern education is exemplary. I was deeply moved by the discipline and devotion of students.”</p>
+      <a href="#" class="explore-btn">Explore About the Person</a>
+    </div>
+
+    <!-- TESTIMONIAL 2 -->
+    <div class="testimonial-card animate-fade">
+      <img src="https://www.dsvv.ac.in/wp-content/uploads/2022/01/36682895906_e6c4f61366_b-300x300.jpg" class="testimonial-img" alt="Person 2">
+      <h3>Dr. R.N. Sharma</h3>
+      <p class="title">Educationist & Thinker</p>
+      <p class="quote">“A place where culture breathes. I’ve rarely seen an institution that respects heritage while shaping future leaders like DSVV does. It’s truly unique.”</p>
+      <a href="#" class="explore-btn">Explore About the Person</a>
+    </div>
+
+    <!-- TESTIMONIAL 3 -->
+    <div class="testimonial-card animate-fade">
+      <img src="https://www.dsvv.ac.in/wp-content/uploads/2022/01/Kailash-Satyarthi-headshot-2-300x300.jpg" class="testimonial-img" alt="Person 3">
+      <h3>Shri Kailash Satyarthi</h3>
+      <p class="title">Nobel Laureate</p>
+      <p class="quote">“The environment of DSVV gives hope that future generations will lead with both intellect and compassion. It is a modern ashram of awakened souls.”</p>
+      <a href="#" class="explore-btn">Explore About the Person</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- STYLES -->
+<style>
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .testimonial-card {
+    background-color: white;
+    padding: 25px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,255,0.15);
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    height: 100%;
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+  }
+
+  .testimonial-card:hover {
+    box-shadow: 0 0 25px rgba(0, 0, 255, 0.3);
+    transform: translateY(-5px);
+  }
+
+  .testimonial-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #0000cc;
+  }
+
+  .testimonial-card h3 {
+    color: #0000cc;
+    margin: 10px 0 5px 0;
+    font-size: 18px;
+  }
+
+  .testimonial-card .title {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+  }
+
+  .testimonial-card .quote {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+
+  .explore-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #0000cc;
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+
+  .explore-btn:hover {
+    background-color: #3333ff;
+  }
+
+  /* Fade-in Animation */
+  @keyframes fadeInUp {
+    0% {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-fade {
+    animation: fadeInUp 1s ease forwards;
+  }
+</style>
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- FOOTER -->
+<footer style="background-color: #0f0a3c; color: #fff; padding: 60px 20px 30px; font-family: Arial, sans-serif;">
+  <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between;">
+
+    <!-- LOGO & QUOTE -->
+    <div style="flex: 1 1 250px;">
+      <img src="https://www.dsvv.ac.in/wp-content/uploads/2022/01/Logo2.jpg" alt="DSVV Logo" style="width: 120px; margin-bottom: 20px;">
+      <p style="font-size: 14px; line-height: 1.6; color: #ccc;">
+        There is need for an educational institution which could mould its students into noble and enlightened human beings: selfless, warm-hearted, compassionate and kind.
+      </p>
+      <p style="font-weight: bold; color: #fff;">~ Kulpita Pt. Shriram Sharma Acharya</p>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div style="flex: 1 1 180px;">
+      <h3 style="font-size: 16px; margin-bottom: 10px;">News & Notices</h3>
+      <ul style="list-style: none; padding: 0; font-size: 14px;">
+        <li><a href="#" style="color: #ccc; text-decoration: none;">Sports</a></li>
+        <li><a href="#" style="color: #ccc; text-decoration: none;">Downloads</a></li>
+        <li><a href="#" style="color: #ccc; text-decoration: none;">Notice Board</a></li>
+        <li><a href="#" style="color: #ccc; text-decoration: none;">Workshops / Seminar</a></li>
+      </ul>
+    </div>
+
+    <!-- IMPORTANT LINKS -->
+    <div style="flex: 1 1 180px;">
+      <h3 style="font-size: 16px; margin-bottom: 10px;">Important Links</h3>
+      <ul style="list-style: none; padding: 0; font-size: 14px;">
+        <li><a href="#" style="color: #ccc; text-decoration: none;">NEP 2020</a></li>
+        <li><a href="#" style="color: #ccc; text-decoration: none;">NIRF</a></li>
+        <li><a href="#" style="color: #ccc; text-decoration: none;">Research</a></li>
+        <li><a href="#" style="color: #ccc; text-decoration: none;">Alumni</a></li>
+        <li><a href="#" style="color: #ccc; text-decoration: none;">Statutes</a></li>
+        <li><a href="#" style="color: #ccc; text-decoration: none;">DSVV Act 2002</a></li>
+      </ul>
+    </div>
+
+    <!-- CONTACT INFO -->
+    <div style="flex: 1 1 250px;">
+      <h3 style="font-size: 16px; margin-bottom: 10px;">Contact Information</h3>
+      <p style="font-size: 14px; line-height: 1.8; color: #ccc;">
+        <strong style="color: #fff;">Dev Sanskriti Vishwavidyalaya</strong><br>
+        Gayatrikunj – Shantikunj, Haridwar - 249411<br>
+        Uttarakhand, INDIA<br><br>
+        <strong>Timings:</strong> 10:00 AM – 5:00 PM (Mon–Sat)<br>
+        <strong>General:</strong> +91-9720107192<br>
+        <strong>Email:</strong> info@dsvv.ac.in<br>
+        <strong>Admissions:</strong> +91-9258369877 / 9612<br>
+        <strong>Admissions Email:</strong> admissions@dsvv.ac.in
+      </p>
+    </div>
+  </div>
+
+  <hr style="border-color: rgba(255,255,255,0.2); margin: 40px 0;">
+  <p style="text-align: center; font-size: 13px; color: #aaa;">
+    &copy; 2002-2025 Dev Sanskriti Vishwavidyalaya. All Rights Reserved.
+  </p>
+</footer>
+
+
+</body>
+</html>
+
+  <script>
+    function pauseScroll() {
+      document.getElementById("scrollTrack").style.animationPlayState = "paused";
+    }
+    function resumeScroll() {
+      document.getElementById("scrollTrack").style.animationPlayState = "running";
+    }
+  </script>
+</body>
+</html>
