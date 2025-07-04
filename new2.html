@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWGP Store – Product Detail</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fffdf7;
+      margin: 0;
+      color: #2d2d2d;
+    }
+    header {
+      background: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #9a5400;
+    }
+    .product-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+    .product-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .product-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .product-details h1 {
+      font-size: 1.8rem;
+      color: #5c1d0d;
+    }
+    .price {
+      font-size: 1.4rem;
+      color: #cc8400;
+      font-weight: bold;
+    }
+    .meta {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.6;
+    }
+    .desc {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #444;
+    }
+    .cart-btn {
+      padding: 0.7rem 1.5rem;
+      background: #cc8400;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      margin-top: 1rem;
+      align-self: start;
+    }
+    .cart-btn:hover {
+      background: #a36200;
+    }
+    .related-section {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    .related-section h2 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      color: #7a3100;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+    }
+    .related-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+      text-align: center;
+    }
+    .related-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .related-card h4 {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      color: #5a1c00;
+    }
+    .related-card .price {
+      font-size: 1rem;
+      color: #cc8400;
+      font-weight: 600;
+    }
+    footer {
+      background: #7a3100;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+    @media (max-width: 768px) {
+      .product-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">AWGP Store</div>
+    <div><a href="#" style="color: #7a3100; text-decoration: none; font-weight: 500;">Cart</a></div>
+  </header>
+
+  <section class="product-container">
+    <div class="product-image">
+      <img src="https://via.placeholder.com/400x500.png?text=Book+Cover" alt="Product Image">
+    </div>
+    <div class="product-details">
+      <h1>Gayatri Mahavigyan</h1>
+      <div class="price">₹100</div>
+      <div class="meta">
+        <p><strong>Author:</strong> Pt. Shriram Sharma Acharya</p>
+        <p><strong>Language:</strong> Hindi</p>
+        <p><strong>Pages:</strong> 320</p>
+        <p><strong>Edition:</strong> 2024</p>
+      </div>
+      <p class="desc">
+        This book provides deep insights into the spiritual science of Gayatri and the powers of mantra sadhana. It explains how one can uplift life through regular chanting and inner transformation.
+      </p>
+      <button class="cart-btn">Add to Cart</button>
+    </div>
+  </section>
+
+  <section class="related-section">
+    <h2>Related Products</h2>
+    <div class="related-grid">
+      <div class="related-card">
+        <img src="https://via.placeholder.com/200x140.png?text=Book+2" alt="Book 2">
+        <h4>Divya Jivan</h4>
+        <div class="price">₹80</div>
+      </div>
+      <div class="related-card">
+        <img src="https://via.placeholder.com/200x140.png?text=Book+3" alt="Book 3">
+        <h4>Sankalp Shakti</h4>
+        <div class="price">₹90</div>
+      </div>
+      <div class="related-card">
+        <img src="https://via.placeholder.com/200x140.png?text=Book+4" alt="Book 4">
+        <h4>Bhagavad Gita Commentary</h4>
+        <div class="price">₹120</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 AWGP Store | Enlighten the world with knowledge
+  </footer>
+</body>
+</html>

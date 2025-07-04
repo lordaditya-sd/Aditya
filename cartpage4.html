@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWGP Cart - Powerful Features</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #644eef;
+      color: #1e293b;
+    }
+
+    header {
+      background-color: #d2e546;
+      padding: 1.5rem;
+      color: #fff;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+    }
+
+    .search-bar {
+      max-width: 800px;
+      margin: 2rem auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 2px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+
+    .cart-container {
+      max-width: 1300px;
+      margin: 2rem auto;
+      padding: 1rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+    }
+
+    .cart-items, .cart-summary, .extras, .recommend {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 100px 1fr 80px 100px;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cart-item img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .item-info h2 {
+      font-size: 1rem;
+      margin: 0 0 0.3rem;
+    }
+
+    .item-info p {
+      font-size: 0.85rem;
+      color: #475569;
+    }
+
+    .quantity input {
+      width: 60px;
+      padding: 0.4rem;
+      text-align: center;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .remove-btn {
+      background-color: #ef4444;
+      color: white;
+      border: none;
+      padding: 0.4rem 0.7rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .remove-btn:hover {
+      background-color: #dc2626;
+    }
+
+    .cart-summary h3 {
+      margin-bottom: 1rem;
+    }
+
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      margin: 0.5rem 0;
+    }
+
+    .checkout-btn {
+      margin-top: 1rem;
+      width: 100%;
+      padding: 0.9rem;
+      font-size: 1rem;
+      background-color: #22c55e;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .checkout-btn:hover {
+      background-color: #16a34a;
+    }
+
+    .extras, .recommend {
+      margin-top: 2rem;
+    }
+
+    .extras h4, .recommend h4 {
+      margin-bottom: 1rem;
+    }
+
+    .recommend-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+
+    .recommend-item {
+      text-align: center;
+      padding: 1rem;
+      background-color: #f8fafc;
+      border-radius: 10px;
+    }
+
+    .recommend-item img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .recommend-item p {
+      font-size: 0.85rem;
+    }
+
+    footer {
+      margin-top: 3rem;
+      background-color: #f1f5f9;
+      text-align: center;
+      padding: 1rem;
+      color: #64748b;
+    }
+
+    @media(max-width: 900px) {
+      .cart-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🛒 AWGP Shopping Cart</h1>
+  </header>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Search books, authors, or keywords...">
+  </div>
+
+  <main class="cart-container">
+    <div class="cart-items">
+      <div class="cart-item">
+        <img src="https://via.placeholder.com/100" alt="Book Image">
+        <div class="item-info">
+          <h2>Yagya Vidya Book</h2>
+          <p>by Pandit Shriram Sharma</p>
+          <p>₹199</p>
+        </div>
+        <div class="quantity">
+          <input type="number" min="1" value="1">
+        </div>
+        <button class="remove-btn">Remove</button>
+      </div>
+
+      <!-- Additional items -->
+      <div class="cart-item">
+        <img src="https://via.placeholder.com/100" alt="Book Image">
+        <div class="item-info">
+          <h2>my life and its legacys</h2>
+          <p>by Pandit Shriram Sharma</p>
+          <p>₹149</p>
+        </div>
+        <div class="quantity">
+          <input type="number" min="1" value="1">
+        </div>
+        <button class="remove-btn">Remove</button>
+      </div>
+    </div>
+
+    <div>
+      <div class="cart-summary">
+        <h3>Order Summary</h3>
+        <div class="summary-line">
+          <span>Subtotal</span>
+          <span>₹348</span>
+        </div>
+        <div class="summary-line">
+          <span>Shipping</span>
+          <span>₹50</span>
+        </div>
+        <div class="summary-line">
+          <strong>Total</strong>
+          <strong>₹398</strong>
+        </div>
+        <button class="checkout-btn">Proceed to Payment & Details</button>
+      </div>
+
+      <div class="extras">
+        <h4>Why Shop With Us?</h4>
+        <ul>
+          <li>Safe and Secure Checkout</li>
+          <li>Fast Dispatch within 48 Hours</li>
+          <li>100% Original Publications</li>
+          <li>Cash on Delivery Available</li>
+        </ul>
+      </div>
+
+      <div class="recommend">
+        <h4>Recommended For You</h4>
+        <div class="recommend-grid">
+          <div class="recommend-item">
+            <img src="https://via.placeholder.com/150" alt="More Book">
+            <p>Gayatri Sadhna</p>
+          </div>
+          <div class="recommend-item">
+            <img src="https://via.placeholder.com/150" alt="More Book">
+            <p>Pragya Abhiyan</p>
+          </div>
+          <div class="recommend-item">
+            <img src="https://via.placeholder.com/150" alt="More Book">
+            <p>Mahila Jagran</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 All World Gayatri Pariwar 
+  </footer>
+</body>
+</html>

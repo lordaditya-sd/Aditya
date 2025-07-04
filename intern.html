@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWGP Store Homepage</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f4f4f4;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #3387cc;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .hamburger {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 24px;
+      flex-grow: 1;
+      text-align: center;
+    }
+
+    .right-header {
+      display: flex;
+      gap: 10px;
+    }
+
+    .right-header input[type="text"],
+    .right-header select {
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -300px;
+      width: 300px;
+      height: 100%;
+      background-color: #0067a3;
+      color: #fff;
+      padding: 20px;
+      transition: left 0.3s ease-in-out;
+      z-index: 999;
+      overflow-y: auto;
+    }
+
+    .sidebar.open {
+      left: 0;
+    }
+
+    .sidebar h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #ff7e7e;
+      display: inline-block;
+    }
+
+    .sidebar a,
+    .sidebar summary {
+      display: block;
+      padding: 10px 0;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      cursor: pointer;
+    }
+
+    .sidebar details {
+      margin-bottom: 10px;
+    }
+
+    .sidebar p {
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .login-floating {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0067a3;
+      color: #fff;
+      border: 2px solid #ff7e7e;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 6px;
+      z-index: 1000;
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+      background-color: #FFED97;
+    }
+
+    .slider {
+      display: flex;
+      width: 300%;
+      height: 100%;
+      animation: slide 12s infinite;
+    }
+
+    .slide {
+      width: 100%;
+      flex-shrink: 0;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .slide1 { background-image: url('https://via.placeholder.com/1200x300/FFED97/000?text=Slide+1'); }
+    .slide2 { background-image: url('https://via.placeholder.com/1200x300/FDEB88/000?text=Slide+2'); }
+    .slide3 { background-image: url('https://via.placeholder.com/1200x300/FAD94C/000?text=Slide+3'); }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      33% { transform: translateX(-100%); }
+      66% { transform: translateX(-200%); }
+      100% { transform: translateX(0); }
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 5%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px 30px;
+      border-radius: 8px;
+    }
+
+    .hero-text h1 {
+      font-size: 32px;
+      color: #333;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 30px;
+      flex: 1;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin: 10px 0 6px;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .card button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #0067a3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      background: #333;
+      color: white;
+      padding: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="sidebar" class="sidebar">
+    <h3>Menu</h3>
+    <a>HOME</a>
+
+    <details>
+      <summary>CATEGORY</summary>
+      <a>Books</a>
+      <a>Yagya Kits</a>
+      <a>Spiritual Items</a>
+    </details>
+
+    <details>
+      <summary>PRODUCT</summary>
+      <a>Audio CDs</a>
+      <a>Posters</a>
+      <a>Samagri</a>
+    </details>
+
+    <details>
+      <summary>LANGUAGE</summary>
+      <a>English</a>
+      <a>Hindi</a>
+    </details>
+
+    <hr style="margin: 20px 0; border-color: #ff7e7e;">
+    <h3>About Us</h3>
+    <p>
+      Gayatri Pariwar is a living model of a futuristic society, being guided by principles of human unity and equality.
+    </p>
+  </div>
+
+  <div class="login-floating">Login</div>
+
+  <header>
+    <div class="hamburger" onclick="toggleSidebar()">☰</div>
+    <div class="logo">AWGP Store</div>
+    <div class="right-header">
+      <input type="text" placeholder="Search products...">
+      <select>
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+      </select>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="slider">
+      <div class="slide slide1"></div>
+      <div class="slide slide2"></div>
+      <div class="slide slide3"></div>
+    </div>
+    <div class="hero-text">
+      <h1>Spiritual Wellness with AWGP</h1>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="card">
+      <img src="https://via.placeholder.com/300x180.png?text=Gayatri+Book" alt="Product 1">
+      <h3>Book</h3>
+      <p>explore different sections</p>
+      <button>View</button>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/300x180.png?text=Hawan+Kit" alt="Product 2">
+      <h3>Yagya Kit</h3>
+      <p>Complete Yagya Samagri set for daily rituals.</p>
+      <button>View</button>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/300x180.png?text=Tulsi+Beads" alt="Product 3">
+      <h3>Life management</h3>
+      <p>different lectures for life management.</p>
+      <button>View</button>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/300x180.png?text=Spiritual+CD" alt="Product 4">
+      <h3>Spiritual Audio CD</h3>
+      <p>Gayatri Mantra and Bhajans for your peace.</p>
+      <button>View</button>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 AWGP Store. All rights reserved. Contact: info@awgpstore.com
+  </footer>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

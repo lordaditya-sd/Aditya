@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWGP Store - Cart Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #f9fafb;
+      color: #1f2937;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .cart-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .cart-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .cart-item {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ffffff;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart-item img {
+      width: 100px;
+      border-radius: 8px;
+    }
+
+    .item-details {
+      flex-grow: 1;
+      padding: 0 1rem;
+    }
+
+    .item-details h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .item-details p {
+      font-size: 0.95rem;
+      color: #6b7280;
+    }
+
+    .quantity {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quantity input {
+      width: 50px;
+      padding: 0.3rem;
+      text-align: center;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+    }
+
+    .remove-btn {
+      background-color: #ef4444;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .remove-btn:hover {
+      background-color: #dc2626;
+    }
+
+    .cart-summary {
+      background-color: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart-summary h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      margin: 0.5rem 0;
+    }
+
+    .checkout-btn {
+      margin-top: 1rem;
+      background-color: #10b981;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .checkout-btn:hover {
+      background-color: #059669;
+    }
+
+    .extras {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    }
+
+    .extras h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .extras ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+    }
+
+    .extras ul li {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    @media (min-width: 768px) {
+      .cart-wrapper {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+
+      .cart-items {
+        flex: 2;
+      }
+
+      .cart-summary {
+        flex: 1;
+        margin-left: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="cart-title">Your Shopping Cart</h1>
+
+    <div class="cart-wrapper">
+      <div class="cart-items">
+        <div class="cart-item">
+          <img src="https://via.placeholder.com/100" alt="Product Image">
+          <div class="item-details">
+            <h4>Spiritual Book Title</h4>
+            <p>by Pandit Shriram Sharma Acharya</p>
+            <p>₹200</p>
+          </div>
+          <div class="quantity">
+            <label>Qty:</label>
+            <input type="number" value="1" min="1">
+          </div>
+          <button class="remove-btn">Remove</button>
+        </div>
+
+        <!-- Add more cart-item divs as needed -->
+      </div>
+
+      <div class="cart-summary">
+        <h3>Order Summary</h3>
+        <div class="summary-line">
+          <span>Subtotal</span>
+          <span>₹200</span>
+        </div>
+        <div class="summary-line">
+          <span>Shipping</span>
+          <span>₹50</span>
+        </div>
+        <div class="summary-line">
+          <strong>Total</strong>
+          <strong>₹250</strong>
+        </div>
+        <div class="checkout-btn">Proceed to Checkout</div>
+      </div>
+    </div>
+
+    <div class="extras">
+      <h4>Need Help?</h4>
+      <ul>
+        <li>Support available via live chat or email</li>
+        <li>Secure payment gateway (Razorpay/UPI/Netbanking)</li>
+        <li>Estimated delivery time shown during checkout</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

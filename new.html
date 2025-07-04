@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWGP Store – Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #cc8400; /* saffron */
+      --secondary: #781702; /* deep maroon */
+      --bg: #fffdf7;
+      --text: #2d2d2d;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    /* ─────────── NAVBAR ─────────── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 2rem;
+    }
+    .nav-left,
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--secondary);
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ddd;
+      border-radius: 50px;
+      padding: 0.35rem 0.9rem;
+      transition: box-shadow 0.2s;
+    }
+    .search-bar input {
+      border: none;
+      outline: none;
+      width: 200px;
+      font-size: 0.9rem;
+      background: transparent;
+    }
+    .search-bar:focus-within {
+      box-shadow: 0 0 0 3px var(--primary);
+    }
+    .language-select {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 0.25rem 0.6rem;
+      font-size: 0.9rem;
+    }
+    ul.nav-cat {
+      list-style: none;
+      display: flex;
+      gap: 0.8rem;
+      margin-left: 1.5rem;
+    }
+    ul.nav-cat > li {
+      position: relative;
+    }
+    ul.nav-cat > li > a {
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    ul.nav-cat > li > a:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 0.6rem;
+      border-radius: 4px;
+    }
+    .dropdown li {
+      white-space: nowrap;
+      padding: 0.3rem 0.6rem;
+    }
+    .dropdown li a:hover {
+      color: var(--primary);
+    }
+    ul.nav-cat li:hover > .dropdown {
+      display: block;
+    }
+    .icon-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.8rem;
+      border: 1px solid var(--primary);
+      border-radius: 50px;
+      font-weight: 500;
+      color: var(--primary);
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .icon-btn:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+    /* ─────────── HERO ─────────── */
+    .hero {
+      position: relative;
+      height: 60vh;
+      overflow: hidden;
+    }
+    .hero-slide {
+      display: flex;
+      height: 100%;
+      width: 300%;
+      animation: slide 15s infinite;
+    }
+    .hero-slide > div {
+      flex: 1 0 100%;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-slide > div::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+    }
+    .hero-caption {
+      position: relative;
+      color: #fff;
+      text-align: center;
+      max-width: 80%;
+      z-index: 1;
+    }
+    .hero-caption h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    .hero-caption a {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      font-weight: 600;
+      margin-top: 0.4rem;
+    }
+    @keyframes slide {
+      0% {
+        transform: translateX(0);
+      }
+      33% {
+        transform: translateX(-100%);
+      }
+      66% {
+        transform: translateX(-200%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+    /* ─────────── GENERIC SECTIONS ─────────── */
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 1.85rem;
+      font-weight: 600;
+      margin-bottom: 2.2rem;
+    }
+    /* ─────────── CATEGORIES GRID ─────────── */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+    }
+    .cat-card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 2rem 1rem;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .cat-card img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 0.6rem;
+    }
+    .cat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.08);
+    }
+    .cat-card h3 {
+      font-size: 1.1rem;
+      margin: 0.4rem 0;
+    }
+    .cat-card button {
+      margin-top: 0.7rem;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.45rem 1.2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    /* ─────────── PRODUCTS SLIDER ─────────── */
+    .products-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 1.2rem;
+      padding-bottom: 1rem;
+    }
+    .products-slider::-webkit-scrollbar {
+      display: none;
+    }
+    .product-card {
+      flex: 0 0 220px;
+      background: #fff;
+      border-radius: 15px;
+      scroll-snap-align: center;
+      padding: 1rem 1rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .product-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .product-card h4 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .price {
+      font-size: 1.1rem;
+      color: var(--secondary);
+      font-weight: 700;
+    }
+    .prod-btn {
+      margin-top: auto;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.5rem 0.8rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    /* ─────────── WHY CHOOSE ─────────── */
+    .why-choose {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+    .wc-box {
+      background: #fff;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+    }
+    .wc-box h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+    }
+    .wc-box p {
+      font-size: 0.93rem;
+      line-height: 1.5rem;
+    }
+    /* ─────────── FOOTER ─────────── */
+    footer {
+      background: var(--secondary);
+      color: #fff;
+      padding: 3.5rem 2rem;
+      margin-top: 4rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    footer h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+      color: var(--primary);
+    }
+    footer ul {
+      list-style: none;
+    }
+    footer li {
+      margin-bottom: 0.4rem;
+      font-size: 0.92rem;
+    }
+    footer a {
+      color: #fff;
+    }
+    footer a:hover {
+      color: var(--primary);
+    }
+    .newsletter {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+    .newsletter input {
+      flex: 1;
+      padding: 0.6rem;
+      border: none;
+      border-radius: 5px;
+    }
+    .newsletter button {
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.6rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    /* ─────────── RESPONSIVE ─────────── */
+    @media (max-width: 768px) {
+      .search-bar input {
+        width: 120px;
+      }
+      ul.nav-cat {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ╭──────────────── NAVBAR ────────────────╮ -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <div class="logo">AWGP Store</div>
+      <ul class="nav-cat">
+        <li>
+          <a href="#">Categories ▾</a>
+          <ul class="dropdown">
+            <li><a href="#">Books</a></li>
+            <li><a href="#">Audio CDs</a></li>
+            <li><a href="#">Gift Items</a></li>
+            <li><a href="#">Ayurveda</a></li>
+            <li><a href="#">Puja Accessories</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search products…" />
+    </div>
+    <div class="nav-right">
+      <select class="language-select">
+        <option>English</option>
+        <option>Hindi</option>
+        <option>Tamil</option>
+        <option>Telugu</option>
+      </select>
+      <a href="#" class="icon-btn">🛒 Cart</a>
+      <a href="#" class="icon-btn">Login</a>
+      <a href="#" class="icon-btn" style="background: var(--primary); color: #fff; border: none">Donate Now</a>
+    </div>
+  </nav>
+
+  <!-- ╭──────────────── HERO ────────────────╮ -->
+  <section class="hero">
+    <div class="hero-slide">
+      <div style="background-image: url('https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&w=1200&q=80')">
+        <div class="hero-caption">
+          <h2>Enlighten your soul with sacred literature</h2>
+          <a href="#">Explore Books</a>
+        </div>
+      </div>
+      <div style="background-image: url('https://images.unsplash.com/photo-1502920917128-1aa500764b85?auto=format&fit=crop&w=1200&q=80')">
+        <div class="hero-caption">
+          <h2>Purify your home with Yagya accessories</h2>
+          <a href="#">Shop Now</a>
+        </div>
+      </div>
+      <div style="background-image: url('https://images.unsplash.com/photo-1556040220-4096cd0cb842?auto=format&fit=crop&w=1200&q=80')">
+        <div class="hero-caption">
+          <h2>Join the mission of Gayatri Pariwar</h2>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╭──────────────── FEATURED CATEGORIES ────────────────╮ -->
+  <section class="section">
+    <h2 class="section-title">Featured Categories</h2>
+    <div class="cat-grid">
+      <div class="cat-card">
+        <img src="https://img.icons8.com/dusk/64/000000/book-shelf.png" alt="Books Icon" />
+        <h3>Books</h3>
+        <button>Shop Now</button>
+      </div>
+      <div class="cat-card">
+        <img src="https://img.icons8.com/dusk/64/000000/musical-notes.png" alt="Audio Icon" />
+        <h3>Audio CDs</h3>
+        <button>Shop Now</button>
+      </div>
+      <div class="cat-card">
+        <img src="https://img.icons8.com/dusk/64/000000/gift.png" alt="Gift Icon" />
+        <h3>Gift Items</h3>
+        <button>Shop Now</button>
+      </div>
+      <div class="cat-card">
+        <img src="https://img.icons8.com/dusk/64/000000/leaf.png" alt="Ayurveda Icon" />
+        <h3>Ayurveda</h3>
+        <button>Shop Now</button>
+      </div>
+      <div class="cat-card">
+        <img src="https://img.icons8.com/dusk/64/000000/candle.png" alt="Puja Icon" />
+        <h3>Puja Accessories</h3>
+        <button>Shop Now</button>
+      </div>
+      <div class="cat-card">
+        <img src="https://img.icons8.com/dusk/64/000000/fire-element.png" alt="Yagya Icon" />
+        <h3>Yagya Essentials</h3>
+        <button>Shop Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╭──────────────── POPULAR PRODUCTS ────────────────╮ -->
+  <section class="section" style="background: #fffdf4">
+    <h2 class="section-title">Popular Products</h2>
+    <div class="products-slider">
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=400&q=80" alt="Gayatri Chalisa" />
+        <h4>Gayatri Chalisa</h4>
+        <div class="price">₹120</div>
+        <button class="prod-btn">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=400&q=80" alt="Ayurvedic Tea" />
+        <h4>Ayurvedic Tea</h4>
+        <div class="price">₹250</div>
+        <button class="prod-btn">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1496412705862-e0088f16f791?auto=format&fit=crop&w=400&q=80" alt="Yagya Samidha Pack" />
+        <h4>Yagya Samidha Pack</h4>
+        <div class="price">₹350</div>
+        <button class="prod-btn">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=400&q=80" alt="Divya Jivan Book" />
+        <h4>Divya Jivan</h4>
+        <div class="price">₹200</div>
+        <button class="prod-btn">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╭──────────────── WHY CHOOSE US ────────────────╮ -->
+  <section class="section">
+    <h2 class="section-title">Why Choose AWGP Store</h2>
+    <div class="why-choose">
+      <div class="wc-box">
+        <h4>Mission Driven</h4>
+        <p>
+          100% of proceeds support the social reform and spiritual awakening initiatives of All World Gayatri Pariwar.
+        </p>
+      </div>
+      <div class="wc-box">
+        <h4>Authentic Products</h4>
+        <p>
+          All books and items are authored or curated by Pt. Shriram Sharma Acharya and the Gayatri family.
+        </p>
+      </div>
+      <div class="wc-box">
+        <h4>Secure Payments</h4>
+        <p>
+          We use trusted Indian payment gateways with UPI, card, and netbanking support.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╭──────────────── FOOTER ────────────────╮ -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h4>About AWGP Store</h4>
+        <p>Your one-stop destination for authentic spiritual literature and Yagya materials.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in Touch</h4>
+        <ul>
+          <li>📞 +91-12345-67890</li>
+          <li>✉️ support@awgpstore.com</li>
+          <li>📍 Shantikunj, Haridwar, India</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Newsletter</h4>
+        <p>Stay updated with latest releases.</p>
+        <div class="newsletter">
+          <input type="email" placeholder="Email Address" />
+          <button>Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

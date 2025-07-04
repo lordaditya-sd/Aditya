@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWGP Store – Payment</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #fffdf7;
+      color: #333;
+    }
+    header {
+      background: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #b45f04;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    }
+    h1 {
+      font-size: 1.8rem;
+      color: #7a3100;
+      margin-bottom: 1.5rem;
+    }
+    form {
+      display: grid;
+      gap: 1.2rem;
+    }
+    label {
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .section {
+      margin-bottom: 2rem;
+    }
+    .section-title {
+      font-size: 1.3rem;
+      color: #5c1d0d;
+      margin-bottom: 1rem;
+      border-bottom: 2px dashed #e1cdb7;
+      padding-bottom: 0.5rem;
+    }
+    .pay-btn {
+      background: #cc8400;
+      color: white;
+      padding: 0.9rem 2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      margin-top: 1.5rem;
+    }
+    .pay-btn:hover {
+      background: #a36200;
+    }
+    footer {
+      background: #7a3100;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">AWGP Store</div>
+    <nav><a href="#" style="color: #7a3100; font-weight: 500;">Cart</a></nav>
+  </header>
+
+  <div class="container">
+    <h1>Secure Payment</h1>
+
+    <form>
+      <div class="section">
+        <div class="section-title">Billing Information</div>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Your full name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="you@example.com" required />
+
+        <label for="address">Address</label>
+        <input type="text" id="address" placeholder="123 Spiritual Marg, Haridwar" required />
+      </div>
+
+      <div class="section">
+        <div class="section-title">Payment Method</div>
+        <label for="payment">Select Payment Type</label>
+        <select id="payment">
+          <option>UPI</option>
+          <option>Credit/Debit Card</option>
+          <option>Net Banking</option>
+          <option>Cash on Delivery</option>
+        </select>
+
+        <label for="card">Card Number</label>
+        <input type="text" id="card" placeholder="xxxx-xxxx-xxxx-1234" />
+
+        <label for="expiry">Expiry Date</label>
+        <input type="month" id="expiry" />
+
+        <label for="cvv">CVV</label>
+        <input type="password" id="cvv" maxlength="3" />
+      </div>
+
+      <button class="pay-btn" type="submit">Complete Payment</button>
+    </form>
+  </div>
+
+  <footer>
+    © 2025 AWGP Store | Powered by Shantikunj Haridwar – Enlightenment Through Action
+  </footer>
+</body>
+</html>
